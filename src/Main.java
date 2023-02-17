@@ -1,19 +1,19 @@
 import model.Epic;
 import model.Subtask;
 import model.Task;
-import service.Status;
-import service.Task_Manager;
+import model.Status;
+import service.TaskManager;
 
 public class Main {
     public static void main(String[] args) {
-        Task_Manager taskManager = new Task_Manager();
+        TaskManager taskManager = new TaskManager();
 
         System.out.println("Создаем и выводим 2 задачи и 2 эпика");
         Task first = new Task("The first task", "This task is number one", taskManager);
         Task second = new Task("The second task", "This task is number two", taskManager);
         taskManager.createTask(first);
         taskManager.createTask(second);
-        System.out.println(taskManager.getTasksList());
+        System.out.println(taskManager.getAllTasks());
 
         Epic twoItems = new Epic("The double epic", "This epic has two subtasks", taskManager);
         taskManager.createEpic(twoItems);
@@ -26,27 +26,27 @@ public class Main {
         taskManager.createEpic(oneItem);
         Subtask alone = new Subtask("The subtask", "Single subtask", oneItem.getId(), taskManager);
         taskManager.createSubtask(alone);
-        System.out.println(taskManager.getEpicsList());
-        System.out.println(taskManager.getSubtasksList() + "\n");
+        System.out.println(taskManager.getAllEpics());
+        System.out.println(taskManager.getAllSubtasks() + "\n");
 
         System.out.println("Изменяем статус первой задачи, первой подзадачи первого эпика"
                 + " и единственной подзадачи второго эпика, выводи результат");
         first.setStatus(Status.DONE);
         taskManager.updateTask(first);
-        System.out.println(taskManager.getTasksList());
+        System.out.println(taskManager.getAllTasks());
 
         alone.setStatus(Status.DONE);
         numberOne.setStatus(Status.DONE);
         taskManager.updateSubtask(numberOne);
         taskManager.updateSubtask(alone);
-        System.out.println(taskManager.getEpicsList());
-        System.out.println(taskManager.getSubtasksList() + "\n");
+        System.out.println(taskManager.getAllEpics());
+        System.out.println(taskManager.getAllSubtasks() + "\n");
 
         System.out.println("Удаляем первую задачу и вторую подзадачу первоо эпика, выводим результат");
         taskManager.removeTaskById(first.getId());
         taskManager.removeSubtaskById(numberTwo.getId());
-        System.out.println(taskManager.getTasksList());
-        System.out.println(taskManager.getEpicsList());
-        System.out.println(taskManager.getSubtasksList());
+        System.out.println(taskManager.getAllTasks());
+        System.out.println(taskManager.getAllEpics());
+        System.out.println(taskManager.getAllSubtasks());
     }
 }

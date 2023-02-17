@@ -1,13 +1,13 @@
 package model;
 
-import service.Task_Manager;
+import service.TaskManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Epic extends Task{
     private List<Integer> subtasksId;
-    public Epic(String name, String description, Task_Manager taskManager) {
+    public Epic(String name, String description, TaskManager taskManager) {
         super(name, description, taskManager);
         subtasksId = new ArrayList<>();
     }

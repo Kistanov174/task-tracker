@@ -1,17 +1,16 @@
 package model;
 
-import service.Status;
-import service.Task_Manager;
+import service.TaskManager;
 
 public class Task {
     protected Integer id;
     protected String Name;
     protected String description;
     protected Status status;
-    protected Task_Manager taskManager;
+    protected TaskManager taskManager;
 
 
-    public Task(String name, String description, Task_Manager taskManager) {
+    public Task(String name, String description, TaskManager taskManager) {
         this.Name = name;
         this.description = description;
         status = Status.NEW;

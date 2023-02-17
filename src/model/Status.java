@@ -1,11 +1,11 @@
-package service;
+package model;
 
 public enum Status {
     NEW ("NEW"),
     IN_PROGRESS ("IN_PROGRESS"),
     DONE ("DONE");
 
-    private String title;
+    private final String title;
 
     Status(String title) {
         this.title = title;
