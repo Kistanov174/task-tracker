@@ -5,9 +5,9 @@ import model.*;
 
 public class TaskManager {
     private int counter;
-    private Map<Integer, Task> tasks;
-    private Map<Integer, Epic> epics;
-    private Map<Integer, Subtask> subtasks;
+    private final Map<Integer, Task> tasks;
+    private final Map<Integer, Epic> epics;
+    private final Map<Integer, Subtask> subtasks;
 
     public TaskManager() {
         counter = 0;
@@ -20,23 +20,23 @@ public class TaskManager {
         return ++counter;
     }
 
-    public Collection<Task> getAllTasks() {
-        if (tasks != null) {
-            return tasks.values();
+    public List<Task> getAllTasks() {
+        if (!tasks.isEmpty()) {
+            return new ArrayList<>(tasks.values());
         }
         return Collections.emptyList();
     }
 
-    public Collection<Epic> getAllEpics() {
-        if (epics != null) {
-            return epics.values();
+    public List<Epic> getAllEpics() {
+        if (!epics.isEmpty()) {
+            return new ArrayList<>(epics.values());
         }
         return Collections.emptyList();
     }
 
     public Collection<Subtask> getAllSubtasks() {
-        if (subtasks != null) {
-            return subtasks.values();
+        if (!subtasks.isEmpty()) {
+            return new ArrayList<>(subtasks.values());
         }
         return Collections.emptyList();
     }
