@@ -34,7 +34,7 @@ public class TaskManager {
         return Collections.emptyList();
     }
 
-    public Collection<Subtask> getAllSubtasks() {
+    public List<Subtask> getAllSubtasks() {
         if (!subtasks.isEmpty()) {
             return new ArrayList<>(subtasks.values());
         }
